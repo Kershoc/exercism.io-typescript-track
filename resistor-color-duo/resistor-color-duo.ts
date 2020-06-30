@@ -1,8 +1,8 @@
 type Color = keyof ResistorColor["values"]
-type Duo<T> = {0:T, 1:T} & Array<T>
+type ResistorBands = [Color,Color]
 
 export class ResistorColor {
-  private colors: Duo<Color>;
+  private colors: ResistorBands;
   private values = {
     black:0,
     brown:1,
@@ -15,7 +15,7 @@ export class ResistorColor {
     grey:8,
     white:9};
 
-  constructor(colors: Duo<Color>) {
+  constructor(colors: ResistorBands) {
     this.colors = colors;
   }
   value = (): number => {
